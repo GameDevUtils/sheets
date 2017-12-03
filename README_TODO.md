@@ -1,6 +1,12 @@
 ## Free-for-OSS-Projects Services
 
 * https://www.browserstack.com/ - Selenium test lab
+* https://circleci.com/
+  * Unit Tests
+  * Coverage Tests
+    * ?? npm run test -- --coverage
+    * ?? https://codeclimate.com/
+  * HTML Validation for ~/help/_site files
 * 
 
 ## Tools / APIs / Components
