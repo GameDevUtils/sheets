@@ -1,0 +1,29 @@
+{
+  "name": "gdu-sheets",
+  "version": "0.1.0",
+  "description": "A cross-platform sprite sheet packer for #gamedev assets.",
+  "keywords": [
+    "spritesheet",
+    "sprite packer",
+    "gamedev"
+  ],
+  "homepage": "http://GameDevUtils.com",
+  "bugs": "https://github.com/GameDevUtils/sheets/issues",
+  "license": "MIT",
+  "author": { "name": "Joseph Hall", "url": "https://github.com/groundh0g" },
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "react": "^16.2.0",
+    "react-bootstrap": "^0.31.5",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
