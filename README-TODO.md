@@ -7,11 +7,12 @@
     * ?? npm run test -- --coverage
     * ?? https://codeclimate.com/
   * HTML Validation for ~/help/_site files
-* 
+  * SEE .circleci/config.yml FOR MORE TODO TASKS...
+* ??? https://github.com/obartra/prettierrc/blob/master/example/.prettierrc
 
 ## Tools / APIs / Components
 
-* https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-flow
+* ??? https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-flow
 * http://github.hubspot.com/pace/docs/welcome/
 * ??? https://flow.org/en/docs/react/components/
 * 
