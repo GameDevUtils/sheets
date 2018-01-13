@@ -10,7 +10,10 @@
   "homepage": "http://GameDevUtils.com",
   "bugs": "https://github.com/GameDevUtils/sheets/issues",
   "license": "MIT",
-  "author": { "name": "Joseph Hall", "url": "https://github.com/groundh0g" },
+  "author": {
+    "name": "Joseph Hall",
+    "url": "https://github.com/groundh0g"
+  },
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
@@ -18,12 +21,14 @@
     "react": "^16.2.0",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "serve": "^6.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "coverage": "npm test -- --coverage",
     "eject": "react-scripts eject"
   }
 }

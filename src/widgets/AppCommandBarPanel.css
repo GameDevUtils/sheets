@@ -1,0 +1,29 @@
+.appCommandBarPanel {
+    border:1px solid #000;
+    position:absolute;
+    top:114px;
+    bottom:0;
+    left:75px;
+    width:325px;
+    background-color:#F1F0F0;
+    color:#333;
+    overflow:auto;
+    padding:35px 5px 5px;
+}
+
+.appCommandBarPanelTitle {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:30px;
+    font-size:1.1em;
+    padding:5px;
+    background-color:#3F66B0;
+    color:#fff;
+}
+
+.appCommandBarPanelTitle button.close {
+    color:#fff;
+    opacity:1.00;
+}

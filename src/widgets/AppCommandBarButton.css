@@ -1,0 +1,47 @@
+.appCommandBarButton {
+    width:65px;
+    height:60px;
+    text-align:center;
+    vertical-align:middle;
+    /*background-color:inherit;*/
+    background-color:#A8B2DA;
+    color:#fff;
+    margin-bottom:4px;
+    padding-top:0;
+    position:relative;
+    border:#444 1px solid;
+    cursor:pointer;
+}
+
+.appCommandBarButton:hover {
+    background-color:#889;
+    border:#fff 1px solid;
+}
+
+.appCommandBarButton.active,
+.appCommandBarButton.active:hover {
+    background-color:#3F66B0;
+    color:#fff;
+}
+
+.appCommandBarButton.active:hover {
+    color:#fff;
+}
+
+.appCommandBarButton i {
+    font-size:2.5em;
+    line-height:40px;
+}
+
+.appCommandBarButton p {
+    font-size:0.75em;
+    line-height:15px;
+}
+
+.appCommandBarButtonBadge {
+    position:absolute;
+    top:3px;
+    right:3px;
+    background-color:#E56936;
+    cursor:default;
+}

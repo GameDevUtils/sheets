@@ -1,0 +1,17 @@
+.appWorkspace {
+    border:1px solid #000;
+    position:absolute;
+    top:114px;
+    bottom:0;
+    /*left:400px;*/
+    left:76px;
+    right:0;
+    background-color:#939393;
+    color:#333;
+    overflow:auto;
+    padding:5px;
+}
+
+.appWorkspace.expanded {
+    left:76px;
+}

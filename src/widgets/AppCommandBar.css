@@ -1,0 +1,12 @@
+.divCommandBar {
+    border:1px solid #000;
+    position:absolute;
+    top:114px;
+    bottom:0;
+    left:0;
+    width:76px;
+    background-color:#31373D;
+    color:#fff;
+    overflow:auto;
+    padding:5px;
+}
