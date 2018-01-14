@@ -5,18 +5,21 @@ import './AppToolbar.css';
 
 class AppToolbar extends React.Component {
 
-    handleClick(source, event) {
+    handleClick(event) {
         event.preventDefault();
-        source.target.blur();
-        source.target.parentElement.blur();
-        switch(source.target.id) {
-            case 'cmdFontAdd':
-                //FontPicker.Show();
-                break;
-            default:
-                break;
-        }
-        // console.log(`clicked ${source.target.id}.`);
+
+        //var source = event.target;
+        //var parentId = source.id || source.parentElement.id || source.parentElement.parentElement.id;
+        // source.blur();
+        // source.parentElement.blur();
+
+        // switch(parentId) {
+        //     case 'cmdFontAdd':
+        //         //FontPicker.Show();
+        //         break;
+        //     default:
+        //         break;
+        // }
     }
 
     render() {

@@ -12,22 +12,8 @@ class AppCommandBarPanel extends React.Component {
             title: props.title || "Untitled",
             id: props.id || ("appCommandBarPanel" + AppCommandBarPanel._idCount++),
             onCollapsePanel: props.onCollapsePanel
-    };
+        };
     }
-
-    // handleClick(source, event) {
-    //     event.preventDefault();
-    //     source.target.blur();
-    //     source.target.parentElement.blur();
-    //     switch(source.target.id) {
-    //         case 'cmdFontAdd':
-    //             //FontPicker.Show();
-    //             break;
-    //         default:
-    //             break;
-    //     }
-    //     // console.log(`clicked ${source.target.id}.`);
-    // }
 
     render() {
         return (

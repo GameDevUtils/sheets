@@ -3,23 +3,16 @@ import './AppWorkspace.css';
 
 class AppWorkspace extends React.Component {
 
-    // handleClick(source, event) {
-    //     event.preventDefault();
-    //     source.target.blur();
-    //     source.target.parentElement.blur();
-    //     switch(source.target.id) {
-    //         case 'cmdFontAdd':
-    //             //FontPicker.Show();
-    //             break;
-    //         default:
-    //             break;
-    //     }
-    //     // console.log(`clicked ${source.target.id}.`);
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         expanded: props.expanded || true
+    //     };
     // }
 
     render() {
         return (
-            <div id="appWorkspace" className="appWorkspace expanded-xxx">&nbsp;</div>
+            <div id="appWorkspace" className="appWorkspace expandedWorkspace">&nbsp;</div>
         );
     }
 }

@@ -1,12 +1,12 @@
 .appCommandBarPanel {
     border:1px solid #000;
     position:absolute;
-    top:114px;
     bottom:0;
-    left:75px;
-    width:325px;
-    background-color:#F1F0F0;
-    color:#333;
+    top:0;
+    left:0;
+    width:100%;
+    background-color:inherit;
+    color:inherit;
     overflow:auto;
     padding:35px 5px 5px;
 }

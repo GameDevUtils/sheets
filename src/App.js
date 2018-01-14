@@ -2,19 +2,22 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import AppToolbar from './widgets/AppToolbar';
 import AppCommandBar from './widgets/AppCommandBar';
-import AppCommandBarPanel from './widgets/AppCommandBarPanel';
 import AppWorkspace from './widgets/AppWorkspace';
-//import logo from './logo.svg';
+import AppCommandBarPanels from "./widgets/AppCommandBarPanels";
 import './App.css';
 
 class App extends Component {
 
-    onCollapsePanels(panelId) {
-        $("#appWorkspace").css("left", "76px");
+    onCollapsePanels() {
+        $("#appWorkspace").addClass("expandedWorkspace");
+        $(".appCommandBarButton").removeClass("active");
+        $(".appCommandBarPanel").hide();
+        $(".appCommandBarPanelGroup").hide()
     }
 
-    onExpandPanels(panelId) {
-        $("#appWorkspace").css("left", "400px");
+    onExpandPanels() {
+        $("#appWorkspace").removeClass("expandedWorkspace");
+        $(".appCommandBarPanelGroup").show()
     }
 
     render() {
@@ -24,21 +27,7 @@ class App extends Component {
 
                 <AppCommandBar onExpandPanels={this.onExpandPanels} onCollapsePanels={this.onCollapsePanels} />
 
-                <AppCommandBarPanel id="panelCommandSettings" visible="false" icon="cog" title="Settings" onCollapsePanel={this.onCollapsePanels} >
-                    Hello there. One.
-                </AppCommandBarPanel>
-
-                <AppCommandBarPanel id="panelCommandSprites" visible="false" icon="picture-o" title="Sprites" onCollapsePanel={this.onCollapsePanels} >
-                    Hello there. Two.
-                </AppCommandBarPanel>
-
-                <AppCommandBarPanel id="panelCommandConsole" visible="false" icon="terminal" title="Console" onCollapsePanel={this.onCollapsePanels} >
-                    Hello there. Three.
-                </AppCommandBarPanel>
-
-                <AppCommandBarPanel id="panelCommandTrash" visible="false" icon="recycle" title="Trash" onCollapsePanel={this.onCollapsePanels} >
-                    Hello there. Four.
-                </AppCommandBarPanel>
+                <AppCommandBarPanels onCollapsePanel={this.onCollapsePanels} />
 
                 <AppWorkspace />
             </div>

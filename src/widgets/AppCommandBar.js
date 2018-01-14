@@ -17,26 +17,20 @@ class AppCommandBar extends React.Component {
     handleClick(event) {
         event.preventDefault();
         var source = event.target;
-        var parentId = source.id || source.parentElement.id || source.parentElement.parentElement.id;
-        var targetPanelId = (parentId || "").replace("Panel", "").replace("cmdToggle", "panelCommand");
+        var sourceId = source.id || source.parentElement.id || source.parentElement.parentElement.id;
+        var $button = $("#" + sourceId);
 
-        ["Settings", "Sprites", "Console", "Trash"].forEach((item, index) => {
-            var idPanel = `#panelCommand${item}`;
-            var isVisible = $(idPanel).is(":visible");
-            $(`#cmdToggle${item}Panel`).removeClass("active");
-            if(idPanel === `#${targetPanelId}`) {
-                if(isVisible) {
-                    $(idPanel).hide();
-                    this.state.onCollapsePanels(targetPanelId);
-                } else {
-                    $(`#cmdToggle${item}Panel`).addClass("active");
-                    $(idPanel).show();
-                    this.state.onExpandPanels(targetPanelId);
-                }
-            } else {
-                $(idPanel).hide();
-            }
-        });
+        if($button.hasClass("active")) {
+            this.state.onCollapsePanels();
+            $button.removeClass("active");
+        } else {
+            this.state.onExpandPanels();
+            $(".appCommandBarButton").removeClass("active");
+            $button.addClass("active");
+            var panelId = (sourceId || "").replace("Panel", "").replace("cmdToggle", "panelCommand");
+            $(".appCommandBarPanel").hide();
+            $("#" + panelId).show();
+        }
     }
 
     render() {
