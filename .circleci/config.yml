@@ -36,11 +36,11 @@ jobs:
           command: |
             npm run test
 
-      - run:
-          name: install coverage depencencies
-          command: |
-            sudo composer self-update
-            composer install -n --prefer-dist
+#      - run:
+#          name: install coverage depencencies
+#          command: |
+#            sudo composer self-update
+#            composer install -n --prefer-dist
 
       - run:
           name: install code climate test-reporter
