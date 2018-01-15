@@ -10,7 +10,6 @@ describe('Command Bar Button', () => {
 
     it('renders properly when properties are missing', () => {
         const btn = mount(<AppCommandBarButton />);
-
         expect(btn.find(".active").length).toEqual(0);
         expect(btn.find("#appCommandBarButton1").length).toEqual(1);
         expect(btn.find("i").props()).toHaveProperty("className", "fa fa-question-circle-o");

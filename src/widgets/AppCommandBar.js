@@ -12,32 +12,35 @@ class AppCommandBar extends React.Component {
         this.handleButtonClick = this.handleButtonClick.bind(this);
     }
 
+    static findClassInElementOrParent(target, className) {
+        let result = { found: false };
+
+        /* istanbul ignore else */
+        if(!(target && target.id && target.className && target.className.includes(className))) {
+            target = target.parentElement;
+        }
+
+        /* istanbul ignore else */
+        if(target && target.id && target.className && target.className.includes(className)) {
+            result.found = true;
+        }
+
+        result.target = target;
+
+        return result;
+    }
+
     handleButtonClick(event) {
         /* istanbul ignore else */
         if(this.state.handleButtonClick) {
             /* istanbul ignore else */
             if(event && event.preventDefault) { event.preventDefault(); }
-            let target = event.target || /* istanbul ignore next */ {};
-            let targetId = target.id;
-            let targetClassName = target.className;
 
-            let tries = 3;
-            while (target && tries-- > 0) {
-                if (target && targetId && targetClassName && targetClassName.includes("appCommandBarButton")) { break; }
-                target = target.parentElement;
-                /* istanbul ignore else */
-                if (target) {
-                    targetId = target.id;
-                    targetClassName = target.className;
-                }
-            }
+            let result = AppCommandBar.findClassInElementOrParent(event.target, "appCommandBarButton");
 
             /* istanbul ignore else */
-            if (target) {
-                /* istanbul ignore else */
-                if (targetId && targetClassName && targetClassName && targetClassName.includes("appCommandBarButton")) {
-                    this.state.handleButtonClick(event, target, targetId, targetClassName, tries);
-                }
+            if(result.found) {
+                this.state.handleButtonClick(event, result.target, result.target.id, result.target.className);
             }
         }
     }
