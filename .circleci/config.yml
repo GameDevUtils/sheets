@@ -55,4 +55,4 @@ jobs:
             npm run coverage
             ./cc-test-reporter format-coverage -t lcov $CIRCLE_ARTIFACTS/coverage/.resultset.json
             ./cc-test-reporter upload-coverage
-            ./cc-test-reporter after-build --exit-code $EXIT_CODE
+#            ./cc-test-reporter after-build --exit-code $EXIT_CODE
