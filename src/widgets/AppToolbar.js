@@ -5,8 +5,16 @@ import './AppToolbar.css';
 
 class AppToolbar extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            onButtonClicked: this.props.onButtonClicked || /* istanbul ignore next */ (() => {})
+        };
+        this.handleClick = this.handleClick.bind(this);
+    }
+
     handleClick(event) {
-        event.preventDefault();
+        //event.preventDefault();
 
         //var source = event.target;
         //var parentId = source.id || source.parentElement.id || source.parentElement.parentElement.id;

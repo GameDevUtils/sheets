@@ -1,12 +1,9 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import AppStatusLabel from "./AppStatusLabel";
 
 
 describe('Command Bar Button', () => {
-
-    beforeEach(() => {
-    });
 
     it('renders properly when properties are missing', () => {
         const btn = mount(<AppStatusLabel />);

@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import './AppCommandBar.css';
 import AppCommandBarButton from "./AppCommandBarButton";
 
@@ -8,38 +7,48 @@ class AppCommandBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            onCollapsePanels: props.onCollapsePanels || (() => {}),
-            onExpandPanels: props.onExpandPanels || (() => {})
+            handleButtonClick: props.handleButtonClick || (() => {})
         };
-        this.handleClick = this.handleClick.bind(this);
+        this.handleButtonClick = this.handleButtonClick.bind(this);
     }
 
-    handleClick(event) {
-        event.preventDefault();
-        var source = event.target;
-        var sourceId = source.id || source.parentElement.id || source.parentElement.parentElement.id;
-        var $button = $("#" + sourceId);
+    handleButtonClick(event) {
+        /* istanbul ignore else */
+        if(this.state.handleButtonClick) {
+            /* istanbul ignore else */
+            if(event && event.preventDefault) { event.preventDefault(); }
+            let target = event.target || /* istanbul ignore next */ {};
+            let targetId = target.id;
+            let targetClassName = target.className;
 
-        if($button.hasClass("active")) {
-            this.state.onCollapsePanels();
-            $button.removeClass("active");
-        } else {
-            this.state.onExpandPanels();
-            $(".appCommandBarButton").removeClass("active");
-            $button.addClass("active");
-            var panelId = (sourceId || "").replace("Panel", "").replace("cmdToggle", "panelCommand");
-            $(".appCommandBarPanel").hide();
-            $("#" + panelId).show();
+            let tries = 3;
+            while (target && tries-- > 0) {
+                if (target && targetId && targetClassName && targetClassName.includes("appCommandBarButton")) { break; }
+                target = target.parentElement;
+                /* istanbul ignore else */
+                if (target) {
+                    targetId = target.id;
+                    targetClassName = target.className;
+                }
+            }
+
+            /* istanbul ignore else */
+            if (target) {
+                /* istanbul ignore else */
+                if (targetId && targetClassName && targetClassName && targetClassName.includes("appCommandBarButton")) {
+                    this.state.handleButtonClick(event, target, targetId, targetClassName, tries);
+                }
+            }
         }
     }
 
     render() {
         return (
             <div className="divCommandBar">
-                <AppCommandBarButton id="cmdToggleSettingsPanel" onClick={this.handleClick} active="false" icon="cog"       caption="Settings" />
-                <AppCommandBarButton id="cmdToggleSpritesPanel"  onClick={this.handleClick} active="false" icon="picture-o" caption="Sprites" />
-                <AppCommandBarButton id="cmdToggleConsolePanel"  onClick={this.handleClick} active="false" icon="terminal"  caption="Console" notify="true" title="You have unread messages." />
-                <AppCommandBarButton id="cmdToggleTrashPanel"    onClick={this.handleClick} active="false" icon="recycle"   caption="Trash" />
+                <AppCommandBarButton id="cmdToggleSettingsPanel" handleButtonClick={this.handleButtonClick} active="false" icon="cog"       caption="Settings" />
+                <AppCommandBarButton id="cmdToggleSpritesPanel"  handleButtonClick={this.handleButtonClick} active="false" icon="picture-o" caption="Sprites" />
+                <AppCommandBarButton id="cmdToggleConsolePanel"  handleButtonClick={this.handleButtonClick} active="false" icon="terminal"  caption="Console" notify="true" title="You have unread messages." />
+                <AppCommandBarButton id="cmdToggleTrashPanel"    handleButtonClick={this.handleButtonClick} active="false" icon="recycle"   caption="Trash" />
             </div>
         );
     }
