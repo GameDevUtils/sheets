@@ -53,6 +53,6 @@ jobs:
           command: |
             ./cc-test-reporter before-build
             npm run coverage
-            ./cc-test-reporter format-coverage -t lconv $CIRCLE_ARTIFACTS/coverage/.resultset.json
+            ./cc-test-reporter format-coverage -t lcov $CIRCLE_ARTIFACTS/coverage/.resultset.json
             ./cc-test-reporter upload-coverage
             ./cc-test-reporter after-build --exit-code $EXIT_CODE
