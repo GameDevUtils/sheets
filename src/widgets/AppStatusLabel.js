@@ -17,7 +17,7 @@ class AppStatusLabel extends React.Component {
     render() {
         return (
             <div id={this.state.id} className={this.state.className}>
-                <strong><span id={this.state.id + "Title"} className={this.state.className + "Title"}>{this.state.title}</span></strong> <span id={this.state.id + "Text"} className={this.state.className + "Text"}>{this.state.caption}</span>
+                <strong><span id={this.state.id + "_Title"} className={this.state.className + "Title"}>{this.state.title}</span></strong> <span id={this.state.id + "_Text"} className={this.state.className + "Text"}>{this.state.caption}</span>
             </div>
         );
     }
