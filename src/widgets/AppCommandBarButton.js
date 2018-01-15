@@ -13,7 +13,7 @@ class AppCommandBarButton extends React.Component {
             notifyVisible: props.notify || false,
             title: props.title || props.caption,
             id: props.id || ("appCommandBarButton" + AppCommandBarButton._idCount++),
-            onClick: props.onClick || (() => {})
+            onClick: props.onClick || /* istanbul ignore next */ (() => {})
         };
         // this.handleClick = this.handleClick.bind(this);
     }
