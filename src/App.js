@@ -22,21 +22,17 @@ class App extends Component {
         $(".appCommandBarPanelGroup").hide();
     }
 
-    onExpandPanels(event) {
-        $("#appWorkspace").removeClass("expandedWorkspace");
-        $(".appCommandBarPanelGroup").show();
-    }
-
     toolbarButtonClicked(event) {
-        console.log(event);
+        // console.log(event);
     }
 
     handleButtonClick(event, target, targetId, targetClassName, tries) {
-        let isActive = (targetClassName || "").includes("active");
+        let isActive = (targetClassName || /* istanbul ignore next */ "").includes("active");
 
         // reset all buttons and the workspace
         this.onCollapsePanels();
 
+        /* istanbul ignore else */
         if(!isActive) {
             $("#appWorkspace").removeClass("expandedWorkspace");
             $("#" + targetId).addClass("active");

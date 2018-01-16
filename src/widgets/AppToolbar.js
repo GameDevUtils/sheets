@@ -14,20 +14,8 @@ class AppToolbar extends React.Component {
     }
 
     handleClick(event) {
-        //event.preventDefault();
-
-        //var source = event.target;
-        //var parentId = source.id || source.parentElement.id || source.parentElement.parentElement.id;
-        // source.blur();
-        // source.parentElement.blur();
-
-        // switch(parentId) {
-        //     case 'cmdFontAdd':
-        //         //FontPicker.Show();
-        //         break;
-        //     default:
-        //         break;
-        // }
+        /* istanbul ignore else */
+        if(this.state.onButtonClicked) { this.state.onButtonClicked(event); }
     }
 
     render() {

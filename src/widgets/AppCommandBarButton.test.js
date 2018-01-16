@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import AppCommandBarButton from "./AppCommandBarButton";
 
 
-describe('Command Bar Button', () => {
+describe('<AppCommandBarButton/>', () => {
 
     beforeEach(() => {
     });

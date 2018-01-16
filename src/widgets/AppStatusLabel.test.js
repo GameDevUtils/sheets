@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import AppStatusLabel from "./AppStatusLabel";
 
 
-describe('Command Bar Button', () => {
+describe('<AppStatusLabel/>', () => {
 
     it('renders properly when properties are missing', () => {
         const btn = mount(<AppStatusLabel />);

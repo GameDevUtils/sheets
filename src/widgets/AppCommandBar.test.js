@@ -1,19 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import AppCommandBar from './AppCommandBar';
 import {mount} from 'enzyme';
 import sinon from 'sinon';
 
-describe("App Command Bar", () => {
-
-    let $root;
-    let toolbar;
-
-    beforeEach(() => {
-        $root = $(document.createElement('div')).attr("id", "wrapper");
-        toolbar = ReactDOM.render(<AppCommandBar/>, $root.get(0));
-    });
+describe("<AppCommandBar/>", () => {
 
     it("clicking a command bar button calls its handleButtonClick function", () => {
         const wrapper = mount(<AppCommandBar />);

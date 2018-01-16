@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import AppCommandBarPanel from "./AppCommandBarPanel";
 
 
-describe('Command Bar Button', () => {
+describe('<AppCommandBarPanel/>', () => {
 
     it('renders properly when properties are missing', () => {
         const btn = mount(<AppCommandBarPanel />);
