@@ -7,7 +7,8 @@
     "sprite packer",
     "gamedev"
   ],
-  "homepage": "http://GameDevUtils.com",
+  "homepage-real": "http://GameDevUtils.com",
+  "homepage": "https://gamedevutils.github.io",
   "bugs": "https://github.com/GameDevUtils/sheets/issues",
   "license": "MIT",
   "author": {
