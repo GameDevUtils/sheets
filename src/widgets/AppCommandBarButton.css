@@ -21,6 +21,7 @@
 .appCommandBarButton.active:hover {
     background-color:#3F66B0;
     color:#fff;
+    border-left:#fff 4px solid;
 }
 
 .appCommandBarButton.active:hover {
