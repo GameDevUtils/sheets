@@ -18,10 +18,11 @@ describe("<AppToolbar/>", () => {
         expect(mockFn.callCount).toEqual(1);
     });
 
-    // TODO: this is only here to trigger handleClick .. needed?
     it("handleClick function does not crash", () => {
         const wrapper = shallow(<AppToolbar />);
         const component = wrapper.instance();
+
+        // TODO: this is only here to trigger handleClick. Add state checks.
         wrapper.find("#cmdProjectNew").simulate("click");
     });
 });

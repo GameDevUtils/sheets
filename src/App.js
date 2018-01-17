@@ -18,7 +18,7 @@ class App extends Component {
     onCollapsePanels(event) {
         $("#appWorkspace").addClass("expandedWorkspace");
         $(".appCommandBarButton").removeClass("active");
-        $(".appCommandBarPanel").hide();
+        $(".appCommandBarPanelContainer").hide();
         $(".appCommandBarPanelGroup").hide();
     }
 

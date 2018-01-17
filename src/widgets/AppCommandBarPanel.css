@@ -1,14 +1,26 @@
-.appCommandBarPanel {
+.appCommandBarPanelContainer {
     border:1px solid #000;
     position:absolute;
     bottom:0;
-    top:0;
+    top:0px;
     left:0;
     width:100%;
     background-color:inherit;
     color:inherit;
     overflow:auto;
-    padding:35px 5px 5px;
+}
+
+.appCommandBarPanel {
+    border:1px solid #000;
+    position:absolute;
+    bottom:0;
+    top:30px;
+    left:0;
+    width:100%;
+    background-color:inherit;
+    color:inherit;
+    overflow:auto;
+    padding:5px;
 }
 
 .appCommandBarPanelTitle {

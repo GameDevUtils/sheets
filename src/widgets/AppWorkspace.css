@@ -14,3 +14,18 @@
 .appWorkspace.expandedWorkspace {
     left:75px;
 }
+
+.appWorkspaceContainer {
+    position:relative;
+    background-color:#866;
+    display:inline;
+}
+
+.appWorkspaceContainerCrop {
+    background: url(./AppWorkspace-transparent-grid.png) repeat;
+}
+
+.appWorkspaceContainerCrop img {
+    max-width:none;
+    position:absolute;
+}

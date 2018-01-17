@@ -20,19 +20,19 @@ describe("<App/>", () => {
         ReactDOM.render(<App />, div);
     });
 
-    // TODO: this is only here to trigger handleButtonClick .. needed?
     it('shows panel when AppCommandBarButton is clicked', () => {
         component.forceUpdate();
         wrapper.update();
 
+        // TODO: this is only here to trigger handleButtonClick. Add state checks.
         wrapper.find("#cmdToggleSettingsPanel").first().simulate("click");
     });
 
-    // TODO: this is only here to trigger handleButtonClick .. needed?
     it('shows panel when AppCommandBarButton is clicked', () => {
         component.forceUpdate();
         wrapper.update();
 
+        // TODO: this is only here to trigger handleButtonClick. Add state checks.
         wrapper.find("#cmdProjectNew").first().simulate("click");
     });
 

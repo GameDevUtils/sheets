@@ -18,7 +18,6 @@ describe("<AppCommandBar/>", () => {
         expect(mockFn.callCount).toEqual(1);
     });
 
-    // TODO: this is only here to trigger handleButtonClick .. needed?
     it("handleButtonClick function does not crash", () => {
         const wrapper = mount(<AppCommandBar />);
         const component = wrapper.instance();
@@ -28,10 +27,10 @@ describe("<AppCommandBar/>", () => {
             "className": "appCommandBarButton active"
         };
 
+        // TODO: this is only here to trigger handleButtonClick. Add state checks.
         wrapper.find("#cmdToggleSettingsPanel").first().simulate("click", {preventDefault() {}, target:target});
     });
 
-    // TODO: this is only here to trigger handleButtonClick .. needed?
     it("handleButtonClick function does not crash when target isn't expected value", () => {
         const wrapper = mount(<AppCommandBar />);
         const component = wrapper.instance();
@@ -47,6 +46,7 @@ describe("<AppCommandBar/>", () => {
             parentElement: parentElement
         };
 
+        // TODO: this is only here to trigger handleButtonClick. Add state checks.
         wrapper.find("#cmdToggleSettingsPanel").first().simulate("click", {preventDefault() {}, target:target});
     });
 });
