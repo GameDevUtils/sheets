@@ -1,0 +1,17 @@
+.divPanelSettings {
+    padding:0 5px;
+}
+
+.divPanelSettings h3 {
+    font-size:1.2em;
+    font-weight:bold;
+    color:#555;
+    border-bottom:#333 1px dotted;
+    margin-bottom:-5px;
+}
+
+.control-label {
+    color:#558;
+    margin-top:8px;
+    padding-left:10px;
+}

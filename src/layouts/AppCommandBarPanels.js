@@ -1,5 +1,6 @@
 import React from 'react';
 import AppCommandBarPanel from './AppCommandBarPanel';
+import PanelSettings from './panels/PanelSettings';
 import './AppCommandBarPanels.css';
 
 class AppCommandBarPanels extends React.Component {
@@ -8,23 +9,22 @@ class AppCommandBarPanels extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: props.id || ("appCommandBarPanelGroup" + AppCommandBarPanels._idCount++),
-            onCollapsePanel: props.onCollapsePanel
+            id: props.id || ("appCommandBarPanelGroup" + AppCommandBarPanels._idCount++)
         };
     }
 
     render() {
         return (
             <div className="appCommandBarPanelGroup">
-                <AppCommandBarPanel id="panelCommandSettings" visible="false" icon="cog" title="Settings" onCollapsePanel={this.state.onCollapsePanel} >
-                    Hello there. One.
+                <AppCommandBarPanel id="panelCommandSettings" visible="false" icon="cog" title="Settings" onCollapsePanel={this.props.onCollapsePanel} >
+                    <PanelSettings onSettingsChanged={this.props.handleSettingsChanged} />
                 </AppCommandBarPanel>
 
-                <AppCommandBarPanel id="panelCommandSprites" visible="false" icon="picture-o" title="Sprites" onCollapsePanel={this.state.onCollapsePanel} >
+                <AppCommandBarPanel id="panelCommandSprites" visible="false" icon="picture-o" title="Sprites" onCollapsePanel={this.props.onCollapsePanel} >
                     Hello there. Two.
                 </AppCommandBarPanel>
 
-                <AppCommandBarPanel id="panelCommandConsole" visible="false" icon="terminal" title="Console" onCollapsePanel={this.state.onCollapsePanel} >
+                <AppCommandBarPanel id="panelCommandConsole" visible="false" icon="terminal" title="Console" onCollapsePanel={this.props.onCollapsePanel} >
                     Hello there. Three.<br/>
                     Hello there. Three.<br/>
                     Hello there. Three.<br/>

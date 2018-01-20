@@ -12,19 +12,13 @@ class AppCommandBarButton extends React.Component {
             caption: props.caption || "[Undefined]",
             notifyVisible: props.notify || false,
             title: props.title || props.caption,
-            id: props.id || ("appCommandBarButton" + AppCommandBarButton._idCount++),
-            handleButtonClick: props.handleButtonClick || /* istanbul ignore next */ (() => {})
+            id: props.id || ("appCommandBarButton" + AppCommandBarButton._idCount++) // ,
         };
-        this.handleButtonClick = this.handleButtonClick.bind(this);
-    }
-
-    handleButtonClick(event) {
-        this.state.handleButtonClick(event);
     }
 
     render() {
         return (
-            <div id={ this.state.id } onClick={ this.handleButtonClick } className={ "appCommandBarButton" + (this.state.active === "true" ? " active" : "") }>
+            <div id={ this.state.id } onClick={ this.props.handleButtonClick } className={ "appCommandBarButton" + (this.state.active === "true" ? " active" : "") }>
                 <i className={ "fa fa-" + this.state.icon }></i>
                 <p>{ this.state.caption }</p>
                 { this.state.notifyVisible === "true" ? (<span className="appCommandBarButtonBadge badge" title={ this.state.title }>&nbsp;</span>) : ""  }

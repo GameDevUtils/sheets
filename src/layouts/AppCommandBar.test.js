@@ -8,7 +8,8 @@ describe("<AppCommandBar/>", () => {
     it("clicking a command bar button calls its handleButtonClick function", () => {
         const wrapper = mount(<AppCommandBar />);
         const component = wrapper.instance();
-        let mockFn = sinon.stub(wrapper.find("#cmdToggleSettingsPanel").first().instance(), "handleButtonClick");
+        // let mockFn = sinon.stub(wrapper.find("#cmdToggleSettingsPanel").first().instance(), "handleButtonClick");
+        let mockFn = sinon.stub(component, "handleButtonClick");
 
         component.forceUpdate();
         wrapper.update();
