@@ -3,49 +3,16 @@ import $ from 'jquery';
 import AppToolbar from './layouts/AppToolbar';
 import AppCommandBar from './layouts/AppCommandBar';
 import AppWorkspace from './layouts/AppWorkspace';
-import AppCommandBarPanels from "./layouts/AppCommandBarPanels";
+import AppCommandBarPanels from './layouts/AppCommandBarPanels';
+import Project from './data/Project';
 import './App.css';
 
 class App extends Component {
 
-    static DEFAULT_OPTIONS() {
-        return {
-            filename: "Untitled",
-            imageFileType: "PNG",
-            dataFileType: "XML",
-            dataFileExtension: "Strip Extension",
-
-            packerMethod: "MaxRects",
-            packerSortBy: "AREA_DESC",
-            packerAllowRotate: "No",
-
-            sizeWidth: "1024",
-            sizeHeight: "1024",
-            sizeMode: "Max Size",
-            sizeConstraint: "Power of Two",
-            sizeForceSquare: "No",
-            sizeIncludeAt2x: "No",
-
-            paddingBorder: "2",
-            paddingShape: "2",
-            paddingInner: "0",
-
-            filterCleanAlpha: "No",
-            filterColorMask: "No",
-            filterAliasSprites: "No",
-            filterDebugMode: "No",
-            filterTrimMode: "None",
-            filterTrimThreshold: "1",
-
-            advancedExtractGIF: "Use First Frame",
-            advancedZipProject: "No"
-        };
-    };
-
     constructor(props) {
         super(props);
 
-        let settings = App.DEFAULT_OPTIONS();
+        let settings = Project.DEFAULT_OPTIONS();
         this.state = { settings: settings, dirty: false };
 
         this.toolbarButtonClicked = this.toolbarButtonClicked.bind(this);
@@ -61,8 +28,20 @@ class App extends Component {
         $(".appCommandBarPanelGroup").hide();
     }
 
-    toolbarButtonClicked(event) {
-        // console.log(event);
+    toolbarButtonClicked(e) {
+        let event = e.nativeEvent;
+        //let newState = {};
+        let target = (event.target.id ? event.target : event.target.parentElement);
+        target.blur();
+        switch(target.id) {
+            case "cmdProjectNew":
+                // TOOO: check dirty flag!
+                Project.NewProject();
+                break;
+            /* istanbul ignore next */
+            default:
+                break;
+        }
     }
 
     handleButtonClick(event, target, targetId, targetClassName, tries) {
@@ -80,22 +59,6 @@ class App extends Component {
         }
     }
 
-    updateSettings(src) {
-        let settings = this.state.settings;
-        let dirty = false;
-        for (let name in src) {
-            if (src.hasOwnProperty(name)) {
-                if(settings[name] !== src[name]) {
-                    settings[name] = src[name];
-                    dirty = true;
-                }
-            }
-        }
-        if(dirty) {
-            this.setState({ dirty: dirty, settings: settings});
-        }
-    }
-
     handleSettingsChanged(arg1, arg2) {
         let values = {};
         if(typeof arg1 === "string" || arg1 instanceof String) {
@@ -103,7 +66,8 @@ class App extends Component {
         } else if (arg1 && typeof arg1 === "object") { // && arg1.constructor === Object) {
             values = arg1;
         }
-        this.updateSettings(values);
+        // this.updateSettings(values);
+        Project.updateSettings(values);
     }
 
     render() {

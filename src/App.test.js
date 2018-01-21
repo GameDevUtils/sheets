@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { mount } from 'enzyme';
 import $ from 'jquery';
 import App from './App';
+import Project from './data/Project';
 import sinon from "sinon";
 
 describe("<App/>", () => {
@@ -34,6 +35,24 @@ describe("<App/>", () => {
 
         // TODO: this is only here to trigger handleButtonClick. Add state checks.
         wrapper.find("#cmdProjectNew").first().simulate("click");
+    });
+
+    it('creates a new project when button is clicked', () => {
+        component.forceUpdate();
+        wrapper.update();
+
+        Project.dirty = true;
+        wrapper.find("#cmdProjectNew").first().simulate("click");
+        expect(Project.dirty).toEqual(false);
+    });
+
+    it('creates a new project when button icon is clicked', () => {
+        component.forceUpdate();
+        wrapper.update();
+
+        Project.dirty = true;
+        wrapper.find("#cmdProjectNew span.glyphicon").first().simulate("click");
+        expect(Project.dirty).toEqual(false);
     });
 
 });

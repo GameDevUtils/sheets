@@ -13,38 +13,45 @@ class AppWorkspace extends React.Component {
         this.handleSelect = this.handleSelect.bind(this);
     }
 
-    static cleanProgress(value) {
+    static setProgress(value) {
         let val = Number.parseFloat(value) || 0.0;
         val = Math.min(Math.max(0.0, Math.round(val)), 100.0);
         return val;
     }
 
+    zoom(delta) {
+        let zoomLevel = Number.parseFloat(this.state.zoomLevel.replace("%", ""));
+        zoomLevel *= delta;
+        zoomLevel = Math.max(12.5, zoomLevel);
+        zoomLevel = zoomLevel + "%";
+        this.setState({ zoomLevel: zoomLevel });
+    }
+
     handleClick(e) {
-        var event = e.nativeEvent;
-        var newState = {};
-        var target = (event.target.id ? event.target : event.target.parentElement);
+        let event = e.nativeEvent;
+        let newState = {};
+        let target = (event.target.id ? event.target : event.target.parentElement);
         target.blur();
         switch(target.id) {
             case "cmdZoomOut":
-                newState.zoomLevel = "50%";
-                newState.progress = 50;
+                this.zoom(0.5);
                 break;
             case "cmdZoomIn":
-                newState.zoomLevel = "200%";
-                newState.progress = 200;
+                this.zoom(2.0);
                 break;
-            case "cmdZoomFitWidth":
-                newState.zoomLevel = "400%";
-                newState.progress = 400;
-                break;
-            case "cmdZoomFitHeight":
-                newState.zoomLevel = "25%";
-                newState.progress = 25;
-                break;
-            case "cmdZoomFitScreen":
-                newState.zoomLevel = "12.5%";
-                newState.progress = 12.5;
-                break;
+            // case "cmdZoomFitWidth":
+            //     newState.zoomLevel = "400%";
+            //     newState.progress = 400;
+            //     break;
+            // case "cmdZoomFitHeight":
+            //     newState.zoomLevel = "25%";
+            //     newState.progress = 25;
+            //     break;
+            // case "cmdZoomFitScreen":
+            //     newState.zoomLevel = "12.5%";
+            //     newState.progress = 12.5;
+            //     break;
+            /* istanbul ignore next */
             default:
                 break;
         }
@@ -52,12 +59,9 @@ class AppWorkspace extends React.Component {
     }
 
     handleSelect(e, event) {
-        console.log(e, " -> ", event.target.innerText);
-        let txt = (event.target.innerText || "100%").trim();
-        let val = Number.parseFloat(txt.replace("%", "")) || 100.0;
+        let target = (event.nativeEvent || event).target;
         this.setState({
-            zoomLevel: txt,
-            progress: val
+            zoomLevel: (target.innerHTML || "100%").trim()
         });
     }
 
