@@ -45,12 +45,9 @@ class Project {
     static updateSettings(src) {
         for (let name in src) {
             /* istanbul ignore else */
-            if (src.hasOwnProperty(name)) {
-                /* istanbul ignore else */
-                if(Project.settings[name] !== src[name]) {
-                    Project.settings[name] = src[name];
-                    Project.dirty = true;
-                }
+            if (src.hasOwnProperty(name) && Project.settings[name] !== src[name]) {
+                Project.settings[name] = src[name];
+                Project.dirty = true;
             }
         }
     }
