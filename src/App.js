@@ -18,7 +18,6 @@ class App extends Component {
         this.toolbarButtonClicked = this.toolbarButtonClicked.bind(this);
         this.handleCollapsePanel = this.handleCollapsePanel.bind(this);
         this.handleButtonClick = this.handleButtonClick.bind(this);
-        this.handleSettingsChanged = this.handleSettingsChanged.bind(this);
     }
 
     handleCollapsePanel(event) {
@@ -59,17 +58,6 @@ class App extends Component {
         }
     }
 
-    handleSettingsChanged(arg1, arg2) {
-        let values = {};
-        if(typeof arg1 === "string" || arg1 instanceof String) {
-            values[arg1] = arg2;
-        } else if (arg1 && typeof arg1 === "object") { // && arg1.constructor === Object) {
-            values = arg1;
-        }
-        // this.updateSettings(values);
-        Project.updateSettings(values);
-    }
-
     render() {
         return (
             <div className="App">
@@ -77,7 +65,7 @@ class App extends Component {
 
                 <AppCommandBar handleButtonClick={this.handleButtonClick} onCollapsePanel={this.handleCollapsePanel} />
 
-                <AppCommandBarPanels onCollapsePanel={this.handleCollapsePanel} onSettingsChanged={this.handleSettingsChanged} />
+                <AppCommandBarPanels onCollapsePanel={this.handleCollapsePanel} />
 
                 <AppWorkspace />
             </div>

@@ -12,7 +12,7 @@ class AppCommandBarButton extends React.Component {
             caption: props.caption || "[Undefined]",
             notifyVisible: props.notify || false,
             title: props.title || props.caption,
-            id: props.id || ("appCommandBarButton" + AppCommandBarButton._idCount++) // ,
+            id: props.id || ("appCommandBarButton" + AppCommandBarButton._idCount++)
         };
     }
 

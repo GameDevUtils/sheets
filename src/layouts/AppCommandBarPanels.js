@@ -17,7 +17,7 @@ class AppCommandBarPanels extends React.Component {
         return (
             <div className="appCommandBarPanelGroup">
                 <AppCommandBarPanel id="panelCommandSettings" visible="false" icon="cog" title="Settings" onCollapsePanel={this.props.onCollapsePanel} >
-                    <PanelSettings onSettingsChanged={this.props.handleSettingsChanged} />
+                    <PanelSettings />
                 </AppCommandBarPanel>
 
                 <AppCommandBarPanel id="panelCommandSprites" visible="false" icon="picture-o" title="Sprites" onCollapsePanel={this.props.onCollapsePanel} >
