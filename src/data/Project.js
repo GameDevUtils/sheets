@@ -50,12 +50,20 @@ class Project {
         Project.dirty = false;
     }
 
-    static updateSettings(src) {
-        for (let name in src) {
+    static updateSettings(arg1, arg2) {
+        if(typeof arg1 === "string") {
             /* istanbul ignore else */
-            if (src.hasOwnProperty(name) && Project.settings[name] !== src[name]) {
-                Project.settings[name] = src[name];
+            if(Project.settings[arg1] !== arg2) {
+                Project.settings[arg1] = Number.parseFloat(arg2) ? Number.parseFloat(arg2) : arg2;
                 Project.dirty = true;
+            }
+        } else {
+            for (let name in arg1) {
+                /* istanbul ignore else */
+                if (arg1.hasOwnProperty(name) && Project.settings[name] !== arg1[name]) {
+                    Project.settings[name] = arg1[name];
+                    Project.dirty = true;
+                }
             }
         }
     }

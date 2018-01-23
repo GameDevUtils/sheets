@@ -14,8 +14,9 @@ class SpinnerEdit extends React.Component {
     }
 
     handleValueChange(e, event) {
-        let value = event.nativeEvent.target.value;
+        let value = (e.nativeEvent || event.nativeEvent).target.value;
         this.setState({ value: value });
+        /* istanbul ignore else */
         if(this.state.setValueCallback) { this.state.setValueCallback(this.props.valueKey, value); }
     }
 

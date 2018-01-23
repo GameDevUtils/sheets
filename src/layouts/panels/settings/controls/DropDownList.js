@@ -34,6 +34,7 @@ class DropDownList extends React.Component {
         values["currentKey"] = this.state.options.indexOf(value) + 1;
         values["currentOption"] = value;
         this.setState(values);
+        /* istanbul ignore else */
         if(this.state.setValueCallback) { this.state.setValueCallback(this.props.valueKey, value); }
     }
 

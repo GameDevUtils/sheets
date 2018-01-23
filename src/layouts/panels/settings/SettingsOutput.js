@@ -9,7 +9,7 @@ class SettingsOutput extends React.Component {
             <div>
                 <h3>OUTPUT</h3>
 
-                <TextEdit id="ddlFilename" label="Filename" setValueCallback={Project.updateSettings} valueKey="filename" defaultValue="Untitled" />
+                <TextEdit id="txtFilename" label="Filename" setValueCallback={Project.updateSettings} valueKey="filename" defaultValue="Untitled" />
 
                 <DropDownList id="ddlImageFileType" label="Image File Type" setValueCallback={Project.updateSettings} valueKey="imageFileType" options={Project.IMAGE_FILE_TYPES} />
 

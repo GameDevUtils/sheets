@@ -13,17 +13,17 @@ class PanelSettings extends React.Component {
             <form>
                 <div className="divPanelSettings">
 
-                    <SettingsOutput onSettingsChanged={this.props.onSettingsChanged}/>
+                    <SettingsOutput />
 
-                    <SettingsAlgorithm onSettingsChanged={this.props.onSettingsChanged} />
+                    <SettingsAlgorithm />
 
-                    <SettingsDimensions onSettingsChanged={this.props.onSettingsChanged} />
+                    <SettingsDimensions />
 
-                    <SettingsPadding onSettingsChanged={this.props.onSettingsChanged} />
+                    <SettingsPadding />
 
-                    <SettingsFilters onSettingsChanged={this.props.onSettingsChanged} />
+                    <SettingsFilters />
 
-                    <SettingsAdvanced onSettingsChanged={this.props.onSettingsChanged} />
+                    <SettingsAdvanced />
 
                     <br/><br/><br/><br/>
 

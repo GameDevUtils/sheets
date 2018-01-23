@@ -28,12 +28,13 @@ class DropDownEdit extends React.Component {
     }
 
     handleValueChange(e, event) {
-        let value = event.nativeEvent.target.value;
-        // let key = e;
+        // let value = event.nativeEvent.target.innerText;
+        let value = event.nativeEvent.target.innerHTML;
         let values = {};
         values["currentKey"] = this.state.options.indexOf(value) + 1;
         values["currentOption"] = value;
         this.setState(values);
+        /* istanbul ignore else */
         if(this.state.setValueCallback) { this.state.setValueCallback(this.props.valueKey, value); }
     }
 
@@ -42,11 +43,12 @@ class DropDownEdit extends React.Component {
             <div>
                 <ControlLabel>{this.props.label}</ControlLabel>
                 <InputGroup bsSize="small">
-                    <FormControl type="text" value={this.state.currentOption} onChange={this.handleValueChange} />
+                    <FormControl type="text" id={this.props.id + "_txt"} value={this.state.currentOption} onChange={this.handleValueChange} />
                     <DropdownButton
                         bsStyle="default"
                         componentClass={InputGroup.Button}
-                        id={this.props.id}
+                        id={this.props.id + "_ddl"}
+                        onSelect={this.handleValueChange}
                         title=""
                         pullRight
                     >
