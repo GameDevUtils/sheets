@@ -25,43 +25,8 @@ class AppCommandBarPanels extends React.Component {
                 </AppCommandBarPanel>
 
                 <AppCommandBarPanel id="panelCommandConsole" visible="false" icon="terminal" title="Console" onCollapsePanel={this.props.onCollapsePanel} >
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
-                    Hello there. Three.<br/>
+                    Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/>
+                    Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/>
                 </AppCommandBarPanel>
 
                 <AppCommandBarPanel id="panelCommandTrash" visible="false" icon="recycle" title="Trash" onCollapsePanel={this.state.onCollapsePanel} >

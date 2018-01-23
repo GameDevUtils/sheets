@@ -51,21 +51,29 @@ class Project {
     }
 
     static updateSettings(arg1, arg2) {
-        if(typeof arg1 === "string") {
+        let values = arg1;
+        arg2 = Project.isFloat(arg2) ? parseFloat(arg2) : arg2;
+
+        if(typeof arg1 === "string") { values = {}; values[arg1] = arg2; }
+
+        for (let name in values) {
+            let value = Project.isFloat(values[name]) ? parseFloat(values[name]) : values[name];
             /* istanbul ignore else */
-            if(Project.settings[arg1] !== arg2) {
-                Project.settings[arg1] = Number.parseFloat(arg2) ? Number.parseFloat(arg2) : arg2;
+            if (values.hasOwnProperty(name) && Project.settings[name] !== value) {
+                Project.settings[name] = value;
                 Project.dirty = true;
             }
-        } else {
-            for (let name in arg1) {
-                /* istanbul ignore else */
-                if (arg1.hasOwnProperty(name) && Project.settings[name] !== arg1[name]) {
-                    Project.settings[name] = arg1[name];
-                    Project.dirty = true;
-                }
-            }
         }
+    }
+
+    // *** Data Helpers ***
+
+    static isInteger(value) {
+        return Project.isFloat(value) && Math.floor(parseFloat(value)) === parseFloat(value);
+    }
+
+    static isFloat(value) {
+        return !isNaN(parseFloat(value));
     }
 
 }

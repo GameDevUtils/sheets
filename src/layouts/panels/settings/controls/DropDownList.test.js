@@ -1,11 +1,9 @@
 import React from 'react';
 import DropDownList from './DropDownList';
 import Project from '../../../../data/Project';
-// import {mount} from 'enzyme';
 import $ from "jquery";
 import ReactTestUtils from "react-dom/test-utils";
 import ReactDOM from "react-dom";
-//import sinon from 'sinon';
 
 describe("<DropDownList />", () => {
 
@@ -13,7 +11,7 @@ describe("<DropDownList />", () => {
         Project.NewProject();
     });
 
-    it("Select greekToMe, does", () => {
+    it("Selecting text item updates Project.settings.xxx.", () => {
         const opts = ["zeta", "alpha", "beta", "gamma", "omega", "omega"];
         const div = document.createElement('div');
         ReactDOM.render(<DropDownList id="ddlGreek" label="Greek" setValueCallback={Project.updateSettings} valueKey="greekToMe" options={opts} />, div);
@@ -27,7 +25,7 @@ describe("<DropDownList />", () => {
         expect(Project.settings.greekToMe).toEqual("omega");
     });
 
-    it("Select My Value, does", () => {
+    it("Selecting numeric item updates Project.settings.xxx.", () => {
         const opts = [78, 12, 33, 40, 51, 51, 67, 70];
         const div = document.createElement('div');
         ReactDOM.render(<DropDownList id="ddlNumber" label="Number" setValueCallback={Project.updateSettings} valueKey="myValue" options={opts} />, div);

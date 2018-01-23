@@ -1,11 +1,9 @@
 import React from 'react';
 import TextEdit from './TextEdit';
 import Project from '../../../../data/Project';
-// import {mount} from 'enzyme';
 import $ from "jquery";
 import ReactTestUtils from "react-dom/test-utils";
 import ReactDOM from "react-dom";
-//import sinon from 'sinon';
 
 describe("<TextEdit />", () => {
 
