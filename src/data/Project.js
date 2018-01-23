@@ -50,16 +50,19 @@ class Project {
         Project.dirty = false;
     }
 
-    static updateSettings(arg1, arg2) {
-        let values = arg1;
+    static updateSetting(arg1, arg2) {
         arg2 = Project.isFloat(arg2) ? parseFloat(arg2) : arg2;
 
-        if(typeof arg1 === "string") { values = {}; values[arg1] = arg2; }
+        let values = {};
+        values[arg1] = arg2;
+        Project.updateSettings(values);
+    }
 
-        for (let name in values) {
-            let value = Project.isFloat(values[name]) ? parseFloat(values[name]) : values[name];
+    static updateSettings(args) {
+        for (let name in args) {
+            let value = Project.isFloat(args[name]) ? parseFloat(args[name]) : args[name];
             /* istanbul ignore else */
-            if (values.hasOwnProperty(name) && Project.settings[name] !== value) {
+            if (args.hasOwnProperty(name) && Project.settings[name] !== value) {
                 Project.settings[name] = value;
                 Project.dirty = true;
             }

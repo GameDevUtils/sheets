@@ -13,7 +13,7 @@ describe("<TextEdit />", () => {
 
     it("Edit filename, does", () => {
         const div = document.createElement('div');
-        ReactDOM.render(<TextEdit id="txtFilename" label="Filename" setValueCallback={Project.updateSettings} valueKey="filename" defaultValue="Untitled" />, div);
+        ReactDOM.render(<TextEdit id="txtFilename" label="Filename" setValueCallback={Project.updateSetting} valueKey="filename" defaultValue="Untitled" />, div);
 
         const $txtFilename = $(div).find("#txtFilename");
 

@@ -25,7 +25,7 @@ describe("data/Project.js", () => {
         expect(Project.settings.filename).toEqual("Untitled");
         expect(Project.dirty).toEqual(false);
 
-        Project.updateSettings("filename", "foo");
+        Project.updateSetting("filename", "foo");
 
         expect(Project.settings.filename).toEqual("foo");
         expect(Project.dirty).toEqual(true);
@@ -35,7 +35,7 @@ describe("data/Project.js", () => {
         expect(Project.settings.filename).toEqual("Untitled");
         expect(Project.dirty).toEqual(false);
 
-        Project.updateSettings("filename", "Untitled");
+        Project.updateSetting("filename", "Untitled");
 
         expect(Project.settings.filename).toEqual("Untitled");
         expect(Project.dirty).toEqual(false);

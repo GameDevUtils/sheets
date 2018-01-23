@@ -13,7 +13,7 @@ describe("<SpinnerEdit />", () => {
 
     it("Edit someValue, does", () => {
         const div = document.createElement('div');
-        ReactDOM.render(<SpinnerEdit id="spnSomeValue" label="Some Value" setValueCallback={Project.updateSettings} valueKey="someValue" defaultValue="2" />, div);
+        ReactDOM.render(<SpinnerEdit id="spnSomeValue" label="Some Value" setValueCallback={Project.updateSetting} valueKey="someValue" defaultValue="2" />, div);
 
         const $txtSomeValue = $(div).find("#spnSomeValue");
 
