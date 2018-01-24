@@ -14,7 +14,8 @@ class TextEdit extends React.Component {
     }
 
     handleValueChange(e, event) {
-        let value = (e.nativeEvent || event.nativeEvent).target.innerHTML.trim();
+        // let value = (e.nativeEvent || event.nativeEvent).target.innerHTML.trim();
+        let value = e.nativeEvent.target.innerHTML.trim();
         this.setState({ filename: value });
         /* istanbul ignore else */
         if(this.state.setValueCallback) { this.state.setValueCallback(this.props.valueKey, value); }

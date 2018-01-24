@@ -60,14 +60,30 @@ class Project {
 
     static updateSettings(args) {
         for (let name in args) {
-            let value = Project.isFloat(args[name]) ? parseFloat(args[name]) : args[name];
             /* istanbul ignore else */
-            if (args.hasOwnProperty(name) && Project.settings[name] !== value) {
-                Project.settings[name] = value;
-                Project.dirty = true;
+            if (args.hasOwnProperty(name)) {
+                Project.updateSettingValue(name, Project.isFloat(args[name]) ? parseFloat(args[name]) : args[name])
             }
         }
     }
+
+    static updateSettingValue(key, val) {
+        if(Project.settings[key] !== val) {
+            Project.settings[key] = val;
+            Project.dirty = true;
+        }
+    }
+
+    // static updateSettings(args) {
+    //     for (let name in args) {
+    //         let value = Project.isFloat(args[name]) ? parseFloat(args[name]) : args[name];
+    //         /* istanbul ignore else */
+    //         if (args.hasOwnProperty(name) && Project.settings[name] !== value) {
+    //             Project.settings[name] = value;
+    //             Project.dirty = true;
+    //         }
+    //     }
+    // }
 
     // *** Data Helpers ***
 
