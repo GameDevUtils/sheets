@@ -60,14 +60,7 @@ class AppWorkspaceToolbar extends React.Component {
                         </ButtonGroup>
                         <ButtonGroup>
                             <DropdownButton bsStyle="default" title={ Workspace.config.zoomLevel } key="5" id="ddlZoomLevel" onSelect={this.handleSelect}>
-                                <MenuItem eventKey="1">1600%</MenuItem>
-                                <MenuItem eventKey="2">800%</MenuItem>
-                                <MenuItem eventKey="3">400%</MenuItem>
-                                <MenuItem eventKey="4">200%</MenuItem>
-                                <MenuItem eventKey="5" active>100%</MenuItem>
-                                <MenuItem eventKey="6">50%</MenuItem>
-                                <MenuItem eventKey="7">25%</MenuItem>
-                                <MenuItem eventKey="8">12.5%</MenuItem>
+                                {["1600%","800%","400%","200%","100%","50%","25%","12.5%"].map((opt, i) => <MenuItem key={i+1} eventKey={i+1} active={"100%"===opt}>{opt}</MenuItem>)}
                             </DropdownButton>
                         </ButtonGroup>
                         <ButtonGroup>
