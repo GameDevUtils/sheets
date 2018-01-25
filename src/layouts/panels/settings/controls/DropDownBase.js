@@ -1,4 +1,5 @@
 import React from "react";
+import { ControlLabel } from "react-bootstrap";
 
 class DropDownBase extends React.Component {
 
@@ -24,6 +25,7 @@ class DropDownBase extends React.Component {
         };
 
         this.handleValueChange = this.handleValueChange.bind(this);
+        this.renderDropDownList = this.renderDropDownList.bind(this);
     }
 
     handleValueChange(e, event) {
@@ -36,6 +38,20 @@ class DropDownBase extends React.Component {
         if(this.props.setValueCallback) { this.props.setValueCallback(this.props.valueKey, value); }
     }
 
+    /* istanbul ignore next */
+    renderDropDownList(props) {
+        // this is just a placeholder for the subclasses to override
+        return <span>from base class</span>;
+    }
+
+    render() {
+        return (
+            <div>
+                <ControlLabel>{this.props.label}</ControlLabel>
+                {this.renderDropDownList()}
+            </div>
+        );
+    }
 }
 
 export default DropDownBase;

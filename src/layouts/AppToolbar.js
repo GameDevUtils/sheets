@@ -1,5 +1,6 @@
 import React from 'react';
-import { ButtonToolbar, ButtonGroup, Button, Glyphicon } from 'react-bootstrap';
+import { ButtonToolbar, ButtonGroup } from 'react-bootstrap';
+import ToolbarButton from './controls/ToolbarButton';
 import AppStatusLabel from './AppStatusLabel';
 import './AppToolbar.css';
 
@@ -24,17 +25,17 @@ class AppToolbar extends React.Component {
                 <div className="container">
                     <ButtonToolbar>
                         <ButtonGroup>
-                            <Button onClick={this.handleClick} id="cmdProjectNew"><Glyphicon glyph="file" /> New</Button>
-                            <Button onClick={this.handleClick} id="cmdProjectOpen"><Glyphicon glyph="folder-open" />&nbsp; Open</Button>
-                            <Button onClick={this.handleClick} id="cmdProjectSave"><Glyphicon glyph="download-alt" /> Save</Button>
+                            <ToolbarButton onClick={this.handleClick} id="cmdProjectNew"  glyph="file" text=" New" />
+                            <ToolbarButton onClick={this.handleClick} id="cmdProjectOpen" glyph="folder-open" text="&nbsp; Open" />
+                            <ToolbarButton onClick={this.handleClick} id="cmdProjectSave" glyph="download-alt" text=" Save" />
                         </ButtonGroup>
                         <ButtonGroup>
-                            <Button onClick={this.handleClick} id="cmdSpriteAdd"><Glyphicon glyph="picture" /> Add</Button>
-                            <Button onClick={this.handleClick} id="cmdSpriteRemove"><Glyphicon glyph="remove" /> Remove</Button>
+                            <ToolbarButton onClick={this.handleClick} id="cmdSpriteAdd"    glyph="picture" text=" Add" />
+                            <ToolbarButton onClick={this.handleClick} id="cmdSpriteRemove" glyph="remove"  text=" Remove" />
                         </ButtonGroup>
                         <ButtonGroup>
-                            <Button onClick={this.handleClick} id="cmdWorkspaceRefresh"><Glyphicon glyph="refresh" /> Refresh</Button>
-                            <Button onClick={this.handleClick} id="cmdProjectPublish"><Glyphicon glyph="share" /> Publish</Button>
+                            <ToolbarButton onClick={this.handleClick} id="cmdWorkspaceRefresh" glyph="refresh" text=" Refresh" />
+                            <ToolbarButton onClick={this.handleClick} id="cmdProjectPublish"   glyph="share"   text=" Publish" />
                         </ButtonGroup>
                         <div id="divStatus" className="pull-right">
                             <AppStatusLabel id="foo" title="STATUS:" caption="Ready." />

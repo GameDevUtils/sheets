@@ -21,7 +21,7 @@ class AppCommandBarPanels extends React.Component {
                 </AppCommandBarPanel>
 
                 <AppCommandBarPanel id="panelCommandSprites" visible="false" icon="picture-o" title="Sprites" onCollapsePanel={this.props.onCollapsePanel} >
-                    Hello there. Two.
+                    This is the sprites panel.
                 </AppCommandBarPanel>
 
                 <AppCommandBarPanel id="panelCommandConsole" visible="false" icon="terminal" title="Console" onCollapsePanel={this.props.onCollapsePanel} >
@@ -30,7 +30,7 @@ class AppCommandBarPanels extends React.Component {
                 </AppCommandBarPanel>
 
                 <AppCommandBarPanel id="panelCommandTrash" visible="false" icon="recycle" title="Trash" onCollapsePanel={this.state.onCollapsePanel} >
-                    Hello there. Four.
+                    This is the trash panel. It should look like the sprites panel.
                 </AppCommandBarPanel>
             </div>
         );

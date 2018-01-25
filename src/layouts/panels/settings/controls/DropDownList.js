@@ -1,30 +1,32 @@
 import React from 'react';
-import { ControlLabel, DropdownButton, MenuItem, ButtonGroup } from 'react-bootstrap';
+import { DropdownButton, MenuItem, ButtonGroup } from 'react-bootstrap';
 import DropDownBase from './DropDownBase';
 
 class DropDownList extends DropDownBase {
 
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
 
-    render() {
+        this.state.isEdit = false;
+
+        this.renderDropDownList = this.renderDropDownList.bind(this);
+    }
+
+    renderDropDownList() {
         return (
-            <div>
-                <ControlLabel>{this.props.label}</ControlLabel>
-                <ButtonGroup justified>
-                    <DropdownButton
-                        bsStyle="default"
-                        bsSize="small"
-                        title={this.state.currentOption}
-                        key={this.state.currentKey}
-                        id={this.props.id}
-                        onSelect={this.handleValueChange}
-                    >
-                        {this.state.options.map((opt, i) => <MenuItem key={i+1} eventKey={i+1} active={this.state.defKey===i+1}>{opt}</MenuItem>)}
-                    </DropdownButton>
-                </ButtonGroup>
-            </div>
+            <ButtonGroup justified>
+                <DropdownButton
+                    id={this.props.id}
+                    bsStyle={this.props.bsStyle || "default"}
+                    bsSize="small"
+                    title={this.state.currentOption}
+                    key={this.state.currentKey || -1}
+                    pullRight={this.props.pullRight || false}
+                    onSelect={this.handleValueChange}
+                >
+                    {this.state.options.map((opt, i) => <MenuItem key={i+1} eventKey={i+1} active={this.state.defKey===i+1}>{opt}</MenuItem>)}
+                </DropdownButton>
+            </ButtonGroup>
         );
     }
 }
