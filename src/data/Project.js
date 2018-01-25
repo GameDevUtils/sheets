@@ -62,12 +62,13 @@ class Project {
         for (let name in args) {
             /* istanbul ignore else */
             if (args.hasOwnProperty(name)) {
-                Project.updateSettingValue(name, Project.isFloat(args[name]) ? parseFloat(args[name]) : args[name])
+                Project.updateSettingValue(name, args[name])
             }
         }
     }
 
     static updateSettingValue(key, val) {
+        val = Project.isFloat(val) ? parseFloat(val) : val;
         if(Project.settings[key] !== val) {
             Project.settings[key] = val;
             Project.dirty = true;
