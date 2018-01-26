@@ -14,7 +14,7 @@ describe("<DropDownEdit />", () => {
     it("Select greekToMe, does", () => {
         const opts = ["zeta", "alpha", "beta", "gamma", "omega", "omega"];
         const div = document.createElement('div');
-        ReactDOM.render(<DropDownEdit id="ddlGreek" label="Greek" setValueCallback={Project.updateSetting} valueKey="greekToMe" options={opts} />, div);
+        ReactDOM.render(<DropDownEdit id="ddlGreek" label="Greek" valueKey="greekToMe" options={opts} />, div);
 
         const $ddlGreek = $(div).find("#ddlGreek_ddl");
 

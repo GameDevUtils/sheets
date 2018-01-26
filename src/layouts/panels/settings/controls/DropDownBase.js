@@ -1,12 +1,13 @@
 import React from "react";
 import { ControlLabel } from "react-bootstrap";
+import Project from "../../../../data/Project";
 
 class DropDownBase extends React.Component {
 
     constructor(props) {
         super(props);
 
-        let options = this.props.options.slice();
+        let options = props.options.slice();
         let defOption = options[0];
         options = options.sort((a,b) => {
             if(Number.parseFloat(a) && Number.parseFloat(b)) {
@@ -16,12 +17,14 @@ class DropDownBase extends React.Component {
             }
         });
 
+        let defKey = options.indexOf(defOption) + 1;
         this.state = {
             options: options,
-            currentKey: options.indexOf(defOption) + 1,
+            currentKey: defKey,
             currentOption: defOption,
             defOption: defOption,
-            defKey: options.indexOf(defOption) + 1
+            defKey: defKey,
+            id: props.id
         };
 
         this.handleValueChange = this.handleValueChange.bind(this);
@@ -33,9 +36,13 @@ class DropDownBase extends React.Component {
         let values = {};
         values["currentKey"] = this.state.options.indexOf(value) + 1;
         values["currentOption"] = value;
+
         this.setState(values);
+
+        let opts = {};
+        opts[this.props.valueKey] = value;
         /* istanbul ignore else */
-        if(this.props.setValueCallback) { this.props.setValueCallback(this.props.valueKey, value); }
+        Project.updateSettings(opts);
     }
 
     /* istanbul ignore next */

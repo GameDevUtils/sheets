@@ -11,11 +11,11 @@ class SettingsOutput extends React.Component {
 
                 <TextEdit id="txtFilename" label="Filename" setValueCallback={Project.updateSettings} valueKey="filename" defaultValue="Untitled" />
 
-                <DropDownList id="ddlImageFileType" label="Image File Type" setValueCallback={Project.updateSettings} valueKey="imageFileType" options={Project.IMAGE_FILE_TYPES} />
+                <DropDownList id="ddlImageFileType" label="Image File Type" valueKey="imageFileType" options={Project.IMAGE_FILE_TYPES} />
 
-                <DropDownList id="ddlDataFileType" label="Date File Type (Atlas)" setValueCallback={Project.updateSettings} valueKey="dataFileType" options={Project.ATLAS_FILE_TYPES} />
+                <DropDownList id="ddlDataFileType" label="Date File Type (Atlas)" valueKey="dataFileType" options={Project.ATLAS_FILE_TYPES} />
 
-                <DropDownList id="ddlDataFileExtension" label="Name in Date File" setValueCallback={Project.updateSettings} valueKey="dataFileExtensions" options={Project.ATLAS_EXTENSIONS} />
+                <DropDownList id="ddlDataFileExtension" label="Name in Date File" valueKey="dataFileExtensions" options={Project.ATLAS_EXTENSIONS} />
             </div>
         );
     }
