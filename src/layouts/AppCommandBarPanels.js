@@ -29,7 +29,7 @@ class AppCommandBarPanels extends React.Component {
                     Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/>
                 </AppCommandBarPanel>
 
-                <AppCommandBarPanel id="panelCommandTrash" visible="false" icon="recycle" title="Trash" onCollapsePanel={this.state.onCollapsePanel} >
+                <AppCommandBarPanel id="panelCommandTrash" visible="false" icon="recycle" title="Trash" onCollapsePanel={this.props.onCollapsePanel} >
                     This is the trash panel. It should look like the sprites panel.
                 </AppCommandBarPanel>
             </div>
