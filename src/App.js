@@ -1,35 +1,37 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
+// import $ from 'jquery';
 import AppToolbar from './layouts/AppToolbar';
 import AppCommandBar from './layouts/AppCommandBar';
 import AppWorkspace from './layouts/AppWorkspace';
 import AppCommandBarPanels from './layouts/AppCommandBarPanels';
 import Project from './data/Project';
 import './App.css';
+import Workspace from "./data/Workspace";
 
 class App extends Component {
 
     constructor(props) {
         super(props);
 
-        let settings = Project.DEFAULT_OPTIONS();
-        this.state = { settings: settings, dirty: false };
+        // let settings = Project.DEFAULT_OPTIONS();
+        this.state = {
+            showPanel: undefined
+        };
 
         this.toolbarButtonClicked = this.toolbarButtonClicked.bind(this);
+
         this.handleCollapsePanel = this.handleCollapsePanel.bind(this);
-        this.handleButtonClick = this.handleButtonClick.bind(this);
+        this.handleCommandBarButtonClick = this.handleCommandBarButtonClick.bind(this);
     }
 
-    handleCollapsePanel(event) {
-        $("#appWorkspace").addClass("expandedWorkspace");
-        $(".appCommandBarButton").removeClass("active");
-        $(".appCommandBarPanelContainer").hide();
-        $(".appCommandBarPanelGroup").hide();
+    handleCollapsePanel(evt) {
+        evt.preventDefault();
+        Workspace.config.isExpanded = true;
+        this.setState({ showPanel: undefined });
     }
 
     toolbarButtonClicked(e) {
         let event = e.nativeEvent;
-        //let newState = {};
         let target = (event.target.id ? event.target : event.target.parentElement);
         target.blur();
         switch(target.id) {
@@ -43,19 +45,10 @@ class App extends Component {
         }
     }
 
-    handleButtonClick(event, target, targetId, targetClassName, tries) {
-        let isActive = (targetClassName || /* istanbul ignore next */ "").includes("active");
-
-        // reset all buttons and the workspace
-        this.handleCollapsePanel();
-
-        /* istanbul ignore else */
-        if(!isActive) {
-            $("#appWorkspace").removeClass("expandedWorkspace");
-            $("#" + targetId).addClass("active");
-            $(".appCommandBarPanelGroup").show();
-            $("#panelCommand" + targetId.replace("cmdToggle", "").replace("Panel", "")).show();
-        }
+    handleCommandBarButtonClick(evt, btn) {
+        evt.preventDefault();
+        Workspace.config.isExpanded = !btn.active;
+        this.setState({ showPanel: btn.active ? btn.panel : undefined });
     }
 
     render() {
@@ -63,9 +56,9 @@ class App extends Component {
             <div className="App">
                 <AppToolbar onButtonClicked={this.toolbarButtonClicked} />
 
-                <AppCommandBar handleButtonClick={this.handleButtonClick} onCollapsePanel={this.handleCollapsePanel} />
+                <AppCommandBar handleClick={this.handleCommandBarButtonClick} onCollapsePanel={this.handleCollapsePanel} showPanel={this.state.showPanel} />
 
-                <AppCommandBarPanels onCollapsePanel={this.handleCollapsePanel} />
+                <AppCommandBarPanels showPanel={this.state.showPanel} onCollapsePanel={this.handleCollapsePanel} />
 
                 <AppWorkspace />
             </div>

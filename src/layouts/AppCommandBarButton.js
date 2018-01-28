@@ -7,21 +7,22 @@ class AppCommandBarButton extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: props.active || false,
-            icon: props.icon || "question-circle-o",
-            caption: props.caption || "[Undefined]",
-            notifyVisible: props.notify || false,
-            title: props.title || props.caption,
-            id: props.id || ("appCommandBarButton" + AppCommandBarButton._idCount++)
         };
+
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(evt) {
+        /* istanbul ignore else */
+        if(this.props.handleClick) { this.props.handleClick(evt, this.props.id); }
     }
 
     render() {
         return (
-            <div id={ this.state.id } onClick={ this.props.handleButtonClick } className={ "appCommandBarButton" + (this.state.active === "true" ? " active" : "") }>
-                <i className={ "fa fa-" + this.state.icon }></i>
-                <p>{ this.state.caption }</p>
-                { this.state.notifyVisible === "true" ? (<span className="appCommandBarButtonBadge badge" title={ this.state.title }>&nbsp;</span>) : ""  }
+            <div id={ this.props.id } onClick={ this.handleClick } className={ "appCommandBarButton" + (this.props.active ? " active" : "") }>
+                <i className={ "fa fa-" + this.props.icon }></i>
+                <p>{ this.props.caption }</p>
+                { this.props.notify ? (<span className="appCommandBarButtonBadge badge" title={ this.props.title }>&nbsp;</span>) : ""  }
             </div>
         );
     }

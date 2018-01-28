@@ -7,19 +7,16 @@ class AppCommandBarPanel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            visible: props.visible || false,
-            icon: props.icon || "question-circle-o",
-            title: props.title || "Untitled",
-            id: props.id || ("appCommandBarPanel" + AppCommandBarPanel._idCount++)
         };
     }
 
     render() {
+        let displayValue = !!this.props.visible ? "block" : "none";
         return (
-            <div id={ this.state.id } className="appCommandBarPanelContainer" style={{ display: ("true" === this.state.visible ? "block" : "none" ) }}>
+            <div id={ this.props.id } className="appCommandBarPanelContainer" style={{ display: displayValue }}>
                 <div className="appCommandBarPanelTitle">
                     <button type="button" className="close pull-right" aria-label="Close" onClick={ this.props.onCollapsePanel }><span aria-hidden="true">&times;</span></button>
-                    <i className={"fa fa-" + this.state.icon}></i> { this.state.title }
+                    <i className={"fa fa-" + this.props.icon}></i> { this.props.title }
                 </div>
                 <div className="appCommandBarPanel">
                     <div className="appCommandBarPanelContent">

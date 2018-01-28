@@ -2,7 +2,8 @@ class Workspace {
 
     static DEFAULT_OPTIONS() {
         return {
-            zoomLevel: '100%'
+            zoomLevel: '100%',
+            isExpanded: true
         };
     };
 
