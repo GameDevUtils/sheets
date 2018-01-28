@@ -9,7 +9,7 @@ describe("<AppCommandBar/>", () => {
         const wrapper = mount(<AppCommandBar />);
         const component = wrapper.instance();
         // let mockFn = sinon.stub(wrapper.find("#cmdToggleSettingsPanel").first().instance(), "handleButtonClick");
-        let mockFn = sinon.stub(component, "handleButtonClick");
+        let mockFn = sinon.stub(component, "handleClick");
 
         component.forceUpdate();
         wrapper.update();

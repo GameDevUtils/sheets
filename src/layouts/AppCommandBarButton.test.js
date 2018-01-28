@@ -8,13 +8,14 @@ describe('<AppCommandBarButton/>', () => {
     beforeEach(() => {
     });
 
-    it('renders properly when properties are missing', () => {
-        const btn = mount(<AppCommandBarButton />);
-        expect(btn.find(".active").length).toEqual(0);
-        expect(btn.find("#appCommandBarButton1").length).toEqual(1);
-        expect(btn.find("i").props()).toHaveProperty("className", "fa fa-question-circle-o");
-        //expect(btn.find("div").props()).toHaveProperty("onClick", AppCommandBarButton.NOP);
-    });
+    // // This is no longer true. Assume buttons are configured properly. No defaults.
+    // it('renders properly when properties are missing', () => {
+    //     const btn = mount(<AppCommandBarButton />);
+    //     expect(btn.find(".active").length).toEqual(0);
+    //     expect(btn.find("#appCommandBarButton1").length).toEqual(1);
+    //     expect(btn.find("i").props()).toHaveProperty("className", "fa fa-question-circle-o");
+    //     //expect(btn.find("div").props()).toHaveProperty("onClick", AppCommandBarButton.NOP);
+    // });
 
     it('renders notify dot when specified', () => {
         const btn = mount(<AppCommandBarButton notify="true" />);
