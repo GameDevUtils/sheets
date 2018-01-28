@@ -4,7 +4,7 @@ import Project from "../../../../data/Project";
 
 class DropDownBase extends React.Component {
 
-    constructor(props) {
+    constructor(props, isEdit) {
         super(props);
 
         let options = props.options.slice();
@@ -24,7 +24,8 @@ class DropDownBase extends React.Component {
             currentOption: defOption,
             defOption: defOption,
             defKey: defKey,
-            id: props.id
+            id: props.id,
+            isEdit: isEdit
         };
 
         this.handleValueChange = this.handleValueChange.bind(this);

@@ -11,13 +11,13 @@ checks:
       threshold: 250
   method-complexity:
     config:
-      threshold: 5
+      threshold: 6 # was 5
   method-count:
     config:
       threshold: 20
   method-lines:
     config:
-      threshold: 25
+      threshold: 30 # was 25
   nested-control-flow:
     config:
       threshold: 4
@@ -31,7 +31,7 @@ checks:
     config:
       threshold: # language-specific defaults. an override will affect all languages.
 exclude_patterns:
-  - "src/**/*.test.js"
-  - "src/setupTests.js"
-  - "src/index.js"
-  - "src/registerServiceWorker.js"
+  - "**/*.test.js"
+  - "setupTests.js"
+  - "index.js"
+  - "registerServiceWorker.js"

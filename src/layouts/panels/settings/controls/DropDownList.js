@@ -5,9 +5,7 @@ import DropDownBase from './DropDownBase';
 class DropDownList extends DropDownBase {
 
     constructor(props) {
-        super(props);
-
-        this.state.isEdit = false;
+        super(props, false);
 
         this.renderDropDownList = this.renderDropDownList.bind(this);
     }
