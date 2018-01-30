@@ -8,11 +8,11 @@ class PanelConsole extends React.Component {
         this.state = {
         };
 
-        this.handleClick = this.handleClick.bind(this);
+        // this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(evt, id) {
-    }
+    // handleClick(evt, id) {
+    // }
 
     render() {
         let output = (<p>No messages have been logged.</p>);
