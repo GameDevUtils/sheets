@@ -1,12 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import AppStatusLabel from "./AppStatusLabel";
+import StatusLabel from "./StatusLabel";
 
 
-describe('<AppStatusLabel/>', () => {
+describe('<StatusLabel/>', () => {
 
     it('renders properly when properties are missing', () => {
-        const btn = mount(<AppStatusLabel />);
+        const btn = mount(<StatusLabel />);
 
         expect(btn.find("span").get(0).props.className).toEqual("appStatusLabelTitle");
         expect(btn.find("span.appStatusLabelTitle").text()).toEqual("STATUS:");

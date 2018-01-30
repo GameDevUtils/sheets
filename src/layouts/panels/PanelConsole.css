@@ -1,0 +1,25 @@
+.divPanelConsole {
+    font-family:monospace;
+    color:black;
+    font-weight:normal;
+}
+
+.divPanelConsole span.error {
+    color:indianred;
+    font-weight:bold;
+}
+
+.divPanelConsole span.warning {
+    color:gold;
+    font-weight:bold;
+}
+
+.divPanelConsole span.info {
+    color:cornflowerblue;
+    font-weight:bold;
+}
+
+.divPanelConsole span.success {
+    color:darkseagreen;
+    font-weight:bold;
+}

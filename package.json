@@ -31,6 +31,7 @@
     "build-docs": "react-scripts build && (rm -rf ./docs) && mv build docs",
     "test": "react-scripts test --env=jsdom",
     "coverage": "npm test -- --coverage",
+    "analyze": "codeclimate analyze -f html > analyze.html && open analyze.html",
     "eject": "react-scripts eject"
   },
   "devDependencies": {

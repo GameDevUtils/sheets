@@ -1,7 +1,8 @@
 import React from 'react';
 import { ButtonToolbar, ButtonGroup } from 'react-bootstrap';
 import ToolbarButton from './controls/ToolbarButton';
-import AppStatusLabel from './AppStatusLabel';
+// import AppStatusLabel from './AppStatusLabel';
+import StatusLabel from './controls/StatusLabel';
 import './AppToolbar.css';
 
 class AppToolbar extends React.Component {
@@ -25,20 +26,20 @@ class AppToolbar extends React.Component {
                 <div className="container">
                     <ButtonToolbar>
                         <ButtonGroup>
-                            <ToolbarButton onClick={this.handleClick} id="cmdProjectNew"  glyph="file" text=" New" />
-                            <ToolbarButton onClick={this.handleClick} id="cmdProjectOpen" glyph="folder-open" text="&nbsp; Open" />
-                            <ToolbarButton onClick={this.handleClick} id="cmdProjectSave" glyph="download-alt" text=" Save" />
+                            <ToolbarButton onClick={this.handleClick} id="cmdProjectNew"  glyph="file"         text="New"   title="Create a new project." />
+                            <ToolbarButton onClick={this.handleClick} id="cmdProjectOpen" glyph="folder-open"  text=" Open" title="Open an existing project." />
+                            <ToolbarButton onClick={this.handleClick} id="cmdProjectSave" glyph="download-alt" text="Save"  title="Save the current project." />
                         </ButtonGroup>
                         <ButtonGroup>
-                            <ToolbarButton onClick={this.handleClick} id="cmdSpriteAdd"    glyph="picture" text=" Add" />
-                            <ToolbarButton onClick={this.handleClick} id="cmdSpriteRemove" glyph="remove"  text=" Remove" />
+                            <ToolbarButton onClick={this.handleClick} id="cmdSpriteAdd"    glyph="picture" text="Add"    title="Import sprite(s) into the project." />
+                            <ToolbarButton onClick={this.handleClick} id="cmdSpriteRemove" glyph="remove"  text="Remove" title="Remove selected sprite(s)." />
                         </ButtonGroup>
                         <ButtonGroup>
-                            <ToolbarButton onClick={this.handleClick} id="cmdWorkspaceRefresh" glyph="refresh" text=" Refresh" />
-                            <ToolbarButton onClick={this.handleClick} id="cmdProjectPublish"   glyph="share"   text=" Publish" />
+                            <ToolbarButton onClick={this.handleClick} id="cmdWorkspaceRefresh" glyph="refresh" text="Refresh" title="Recalculate and redraw sheet in workspace." />
+                            <ToolbarButton onClick={this.handleClick} id="cmdProjectPublish"   glyph="share"   text="Publish" title="Compile assets and save to file." />
                         </ButtonGroup>
                         <div id="divStatus" className="pull-right">
-                            <AppStatusLabel id="foo" title="STATUS:" caption="Ready." />
+                            <StatusLabel id="foo" title="STATUS:" caption="Ready." />
                         </div>
                     </ButtonToolbar>
                 </div>

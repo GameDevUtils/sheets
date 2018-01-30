@@ -35,3 +35,8 @@ exclude_patterns:
   - "setupTests.js"
   - "index.js"
   - "registerServiceWorker.js"
+    # following are for command-line runs of "codeclimate analyze -f html > analyze.html"
+  - "docs/"
+  - "coverage/"
+  - "node_modules"
+  - "public/"

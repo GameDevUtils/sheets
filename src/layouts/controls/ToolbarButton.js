@@ -1,7 +1,5 @@
 import React from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
-// import AppStatusLabel from './AppStatusLabel';
-// import './AppToolbar.css';
 
 class ToolbarButton extends React.Component {
 
@@ -17,8 +15,11 @@ class ToolbarButton extends React.Component {
     }
 
     render() {
+        let glyph = !!this.props.glyph ? (<Glyphicon glyph={this.props.glyph} />) : (null);
+        let text = !!this.props.text ? (this.props.text) : (null);
+
         return (
-            <Button onClick={this.handleClick} id={this.props.id}><Glyphicon glyph={this.props.glyph} /> {this.props.text}</Button>
+            <Button onClick={this.handleClick} id={this.props.id} title={this.props.title}>{glyph}{(!!glyph && !!text) ? (<span>&nbsp;</span>) : ""}{text}</Button>
         );
     }
 }

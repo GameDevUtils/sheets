@@ -1,7 +1,7 @@
 import React from 'react';
-import './AppStatusLabel.css';
+import './StatusLabel.css';
 
-class AppStatusLabel extends React.Component {
+class StatusLabel extends React.Component {
     static _idCount = 1;
 
     constructor(props) {
@@ -10,7 +10,7 @@ class AppStatusLabel extends React.Component {
             title: props.title || "STATUS:",
             caption: props.caption || "Status is unknown.",
             className: props.className || "appStatusLabel",
-            id: props.id || ("appStatusLabel" + AppStatusLabel._idCount++)
+            id: props.id || ("appStatusLabel" + StatusLabel._idCount++)
         };
     }
 
@@ -23,4 +23,4 @@ class AppStatusLabel extends React.Component {
     }
 }
 
-export default AppStatusLabel;
+export default StatusLabel;

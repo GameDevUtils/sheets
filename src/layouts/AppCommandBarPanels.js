@@ -1,6 +1,7 @@
 import React from 'react';
 import AppCommandBarPanel from './AppCommandBarPanel';
 import PanelSettings from './panels/PanelSettings';
+import PanelConsole from "./panels/PanelConsole";
 import './AppCommandBarPanels.css';
 
 class AppCommandBarPanels extends React.Component {
@@ -10,6 +11,16 @@ class AppCommandBarPanels extends React.Component {
         this.state = {
         };
     }
+
+    static tempConsoleText = [
+        "Initializing plugins ... <span class='warning '>Done.</span>",
+        "Initializing fonts ... ",
+        "<span class='success'>Success:</span> FooFont.ttf",
+        "<span class='error'>ERROR:</span> BarFont.ttf",
+        "<span class='success'>Success:</span> BazFont.ttf",
+        "<span class='info'>INFO:</span> PooFont.ttf",
+        "Ready.",
+    ];
 
     render() {
         return (
@@ -23,8 +34,7 @@ class AppCommandBarPanels extends React.Component {
                 </AppCommandBarPanel>
 
                 <AppCommandBarPanel id="panelCommandConsole" visible={this.props.showPanel === "panelCommandConsole"} icon="terminal" title="Console" onCollapsePanel={this.props.onCollapsePanel} >
-                    Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/>
-                    Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/> Hello there. Three.<br/>
+                    <PanelConsole lines={AppCommandBarPanels.tempConsoleText} />
                 </AppCommandBarPanel>
 
                 <AppCommandBarPanel id="panelCommandTrash" visible={this.props.showPanel === "panelCommandTrash"} icon="recycle" title="Trash" onCollapsePanel={this.props.onCollapsePanel} >

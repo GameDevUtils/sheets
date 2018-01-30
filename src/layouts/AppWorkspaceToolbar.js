@@ -1,5 +1,6 @@
 import React from 'react';
-import { ButtonToolbar, ButtonGroup, Button, Glyphicon, ProgressBar, DropdownButton, MenuItem } from 'react-bootstrap';
+import { ButtonToolbar, ButtonGroup, ProgressBar, DropdownButton, MenuItem } from 'react-bootstrap';
+import ToolbarButton from './controls/ToolbarButton';
 import Workspace from '../data/Workspace';
 import './AppWorkspaceToolbar.css';
 
@@ -55,8 +56,8 @@ class AppWorkspaceToolbar extends React.Component {
                 <div className="container-xxx">
                     <ButtonToolbar>
                         <ButtonGroup>
-                            <Button onClick={this.handleClick} id="cmdZoomOut" title="Zoom Out"><Glyphicon glyph="zoom-out" /></Button>
-                            <Button onClick={this.handleClick} id="cmdZoomIn"  title="Zoom In" ><Glyphicon glyph="zoom-in"  /></Button>
+                            <ToolbarButton onClick={this.handleClick} id="cmdZoomOut" glyph="zoom-out" text={null} title="Zoom Out" />
+                            <ToolbarButton onClick={this.handleClick} id="cmdZoomIn"  glyph="zoom-in"  text={null} title="Zoom In" />
                         </ButtonGroup>
                         <ButtonGroup>
                             <DropdownButton bsStyle="default" title={ Workspace.config.zoomLevel } key="5" id="ddlZoomLevel" onSelect={this.handleSelect}>
@@ -64,9 +65,9 @@ class AppWorkspaceToolbar extends React.Component {
                             </DropdownButton>
                         </ButtonGroup>
                         <ButtonGroup>
-                            <Button onClick={this.handleClick} id="cmdZoomFitWidth"  title="Fit to Width" ><Glyphicon glyph="resize-horizontal" /></Button>
-                            <Button onClick={this.handleClick} id="cmdZoomFitHeight" title="Fit to Height"><Glyphicon glyph="resize-vertical" /></Button>
-                            <Button onClick={this.handleClick} id="cmdZoomFitScreen" title="Fit to Screen"><Glyphicon glyph="fullscreen" /></Button>
+                            <ToolbarButton onClick={this.handleClick} id="cmdZoomFitWidth"  glyph="resize-horizontal" text={null} title="Fit to Width" />
+                            <ToolbarButton onClick={this.handleClick} id="cmdZoomFitHeight" glyph="resize-vertical"   text={null} title="Fit to Height" />
+                            <ToolbarButton onClick={this.handleClick} id="cmdZoomFitScreen" glyph="fullscreen"        text={null} title="Fit to Screen" />
                         </ButtonGroup>
                         <div id="appWorkspaceProgress" className="pull-right">
                             <div><ProgressBar now={60} bsStyle="success" style={{minWidth: "250px", marginTop: "10px", marginRight: "35px"}} /></div>
